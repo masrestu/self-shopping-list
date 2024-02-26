@@ -30,6 +30,7 @@ function generateProduct(listName, products) {
         <button onclick="clicked(this)" class="bg-orange-500">Sh</button>
         <button onclick="clicked(this)" class="bg-green-500">Sb</button>
         <button onclick="clicked(this)" class="bg-red-500">Al</button>
+        <button onclick="clicked(this)" class="bg-red-900">❌</button>
       </div>
     </div>`
   })
@@ -40,37 +41,47 @@ generateProduct("mini", miniLists)
 generateProduct("sayur", sayurLists)
 generateProduct("shopee", shopeeLists)
 
-const buttons = document.querySelectorAll("button")
+const buttons = document.querySelectorAll(".buttons button")
 
 function clicked(button) {
   const listName = button.parentElement.parentElement.parentElement.id
   const productName = button.parentElement.parentElement.children[0].children[0].textContent
+  const buttonText = button.textContent
+
   if (listName === "unset") {
     unsetLists = unsetLists.filter(product => product !== productName)
     generateProduct("unset", unsetLists)
   } else if (listName === "mini") {
-    miniLists.filter(product => product !== productName)
+    miniLists = miniLists.filter(product => product !== productName)
     generateProduct("mini", miniLists)
   } else if (listName === "sayur") {
-    sayurLists.filter(product => product !== productName)
+    sayurLists = sayurLists.filter(product => product !== productName)
     generateProduct("sayur", sayurLists)
   } else if (listName === "shopee") {
-    shopeeLists.filter(product => product !== productName)
+    shopeeLists = shopeeLists.filter(product => product !== productName)
     generateProduct("shopee", shopeeLists)
   }
 
-  const buttonText = button.textContent
   if (buttonText === "Sh") {
-    miniLists.push(productName)
-    generateProduct("shopee", miniLists)
+    shopeeLists.push(productName)
+    generateProduct("shopee", shopeeLists)
   } else if (buttonText === "Sb") {
     sayurLists.push(productName)
     generateProduct("sayur", sayurLists)
   } else if (buttonText === "Al") {
-    shopeeLists.push(productName)
-    generateProduct("mini", shopeeLists)
+    miniLists.push(productName)
+    generateProduct("mini", miniLists)
   } else if (buttonText === "Un") {
     unsetLists.push(productName)
     generateProduct("unset", unsetLists)
   }
 }
+
+const addButton = document.getElementById("add")
+addButton.addEventListener("click", () => {
+  const newProduct = prompt("Add new product")
+  if (newProduct) {
+    unsetLists.push(newProduct)
+    generateProduct("unset", unsetLists)
+  }
+})

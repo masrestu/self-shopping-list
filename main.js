@@ -26,10 +26,20 @@ function generateProduct(listName, products) {
         <span>${product}</span>
       </div>
       <div class="buttons">
-        <button onclick="clicked(this)" class="bg-slate-100">Un</button>
-        <button onclick="clicked(this)" class="bg-orange-500">Sh</button>
-        <button onclick="clicked(this)" class="bg-green-500">Sb</button>
-        <button onclick="clicked(this)" class="bg-red-500">Al</button>
+        <button onclick="clicked(this)" class="bg-slate-100">Un</button>`
+    if (listName != 'shopee') {
+      list.innerHTML += `
+        <button onclick="clicked(this)" class="bg-orange-500">Sh</button>`
+    }
+    if (listName != 'sayur') {
+      list.innerHTML += `
+        <button onclick="clicked(this)" class="bg-green-500">Sb</button>`
+    }
+    if (listName != 'mini') {
+      list.innerHTML += `
+        <button onclick="clicked(this)" class="bg-red-500">Al</button>`
+    }
+    list.innerHTML += `
         <button onclick="clicked(this)" class="bg-red-900">❌</button>
       </div>
     </div>`

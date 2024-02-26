@@ -21,28 +21,25 @@ function generateProduct(listName, products) {
   const list = document.getElementById(listName)
   list.innerHTML = ""
   products.forEach(product => {
-    list.innerHTML += `<div class="item">
+    let item = `<div class="item">
       <div class="product">
         <span>${product}</span>
       </div>
       <div class="buttons">
         <button onclick="clicked(this)" class="bg-slate-100">Un</button>`
     if (listName != 'shopee') {
-      list.innerHTML += `
-        <button onclick="clicked(this)" class="bg-orange-500">Sh</button>`
+      item += `<button onclick="clicked(this)" class="bg-orange-500">Sh</button>`
     }
     if (listName != 'sayur') {
-      list.innerHTML += `
-        <button onclick="clicked(this)" class="bg-green-500">Sb</button>`
+      item += `<button onclick="clicked(this)" class="bg-green-500">Sb</button>`
     }
     if (listName != 'mini') {
-      list.innerHTML += `
-        <button onclick="clicked(this)" class="bg-red-500">Al</button>`
+      item += `<button onclick="clicked(this)" class="bg-red-500">Al</button>`
     }
-    list.innerHTML += `
-        <button onclick="clicked(this)" class="bg-red-900">❌</button>
+    item += `<button onclick="clicked(this)" class="bg-red-900">❌</button>
       </div>
     </div>`
+    list.innerHTML += item
   })
 }
 

@@ -47,6 +47,10 @@ function clicked(button) {
   const listName = button.parentElement.parentElement.parentElement.id
   const productName = button.parentElement.parentElement.children[0].children[0].textContent
   const buttonText = button.textContent
+  if (buttonText === "❌") {
+    const cont = confirm("Hapus " + productName + "?")
+    if (!cont) return
+  }
 
   if (listName === "unset") {
     unsetLists = unsetLists.filter(product => product !== productName)

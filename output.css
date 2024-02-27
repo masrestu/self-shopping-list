@@ -570,12 +570,12 @@ header button {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-left-color: rgb(51 65 85 / var(--tw-border-opacity));
+  border-right-color: rgb(51 65 85 / var(--tw-border-opacity));
   font-size: 0.75rem;
   line-height: 1rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 article {

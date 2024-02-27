@@ -27,7 +27,7 @@ function generateProduct(listName, products) {
       </div>
       <div class="buttons">`
     if (listName != 'unset') {
-      item += `<button onclick="clicked(this)" class="bg-slate-100">?</button>`
+      item += `<button onclick="clicked(this)" class="bg-slate-100">❔</button>`
     }
     if (listName != 'shopee') {
       item += `<button onclick="clicked(this)" class="shopee-btn">&nbsp;</button>`
@@ -56,6 +56,7 @@ function clicked(button) {
   const listName = button.parentElement.parentElement.parentElement.id
   const productName = button.parentElement.parentElement.children[0].children[0].textContent
   const buttonText = button.textContent
+
   if (buttonText === "❌") {
     const cont = confirm("Hapus " + productName + "?")
     if (!cont) return
@@ -75,16 +76,16 @@ function clicked(button) {
     generateProduct("shopee", shopeeLists)
   }
 
-  if (buttonText === "Sh") {
+  if (button.classList.contains("shopee-btn")) {
     shopeeLists.push(productName)
     generateProduct("shopee", shopeeLists)
-  } else if (buttonText === "Sb") {
+  } else if (button.classList.contains("sayur-btn")) {
     sayurLists.push(productName)
     generateProduct("sayur", sayurLists)
-  } else if (buttonText === "Al") {
+  } else if (button.classList.contains("mini-btn")) {
     miniLists.push(productName)
     generateProduct("mini", miniLists)
-  } else if (buttonText === "Un") {
+  } else if (buttonText === "❔") {
     unsetLists.push(productName)
     generateProduct("unset", unsetLists)
   }

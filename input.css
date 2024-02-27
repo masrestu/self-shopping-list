@@ -3,47 +3,59 @@
 @tailwind utilities;
 
 @layer components {
-  body > div {
-    @apply w-full mb-5
-  }
+	body > div {
+		@apply w-full mb-5;
+	}
 
-  body > div > *:not(article) {
-    @apply mx-2
-  }
+	body > div > *:not(article) {
+		@apply mx-2;
+	}
 
-  header {
-    @apply flex items-center justify-between
-  }
+	header {
+		@apply flex items-center justify-between;
+	}
 
-  header button {
-    @apply bg-slate-700 w-6 h-6 text-white rounded-full flex items-center justify-center text-xs
-  }
+	header button {
+		@apply bg-slate-700 w-6 h-6 text-white rounded-full flex items-center justify-center text-xs;
+	}
 
-  article {
-    @apply border-4 rounded-md border-slate-700 overflow-hidden
-  }
+	article {
+		@apply border-4 rounded-md border-slate-700 overflow-hidden;
+	}
 
-  h1 {
-    @apply text-2xl text-slate-700 font-bold
-  }
+	h1 {
+		@apply text-2xl text-slate-700 font-bold;
+	}
 
-  .item {
-    @apply w-full flex items-center justify-between border-t-2 border-t-slate-700
-  }
+	.item {
+		@apply w-full flex items-center justify-between border-t-2 border-t-slate-700;
+	}
 
-  .buttons {
-    @apply  w-1/2 flex items-center justify-between
-  }
+	.buttons {
+		@apply w-1/2 flex items-center justify-between;
+	}
 
-  .buttons button {
-    @apply w-full px-2 py-1
-  }
+	.buttons button {
+		@apply w-full py-1; 
+	}
 
-  .product {
-    @apply w-1/2
-  }
+	.product {
+		@apply w-1/2;
+	}
 
-  .product span {
-    @apply bg-slate-800 px-2 py-1 block w-full font-bold text-white
-  }
+	.product span {
+		@apply bg-slate-800 px-2 py-1 block w-full font-bold text-white;
+	}
+
+	.shopee-btn {
+		@apply bg-[url("./assets/images/Shopee_logo.svg")] bg-no-repeat bg-center bg-contain bg-orange-200;
+	}
+
+	.sayur-btn {
+		@apply bg-[url("./assets/images/sayurbox_logo.png")] bg-no-repeat bg-center bg-contain bg-sayur;
+	}
+
+	.mini-btn {
+		@apply bg-[url("./assets/images/Alfamart_logo.svg")] bg-no-repeat bg-center bg-25 bg-blue-200;
+	}
 }

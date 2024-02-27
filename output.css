@@ -570,10 +570,9 @@ header button {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border-width: 2px;
+  border-width: 4px;
   --tw-border-opacity: 1;
-  border-left-color: rgb(51 65 85 / var(--tw-border-opacity));
-  border-right-color: rgb(51 65 85 / var(--tw-border-opacity));
+  border-color: rgb(51 65 85 / var(--tw-border-opacity));
   font-size: 0.75rem;
   line-height: 1rem;
 }

@@ -16,7 +16,7 @@
 	}
 
 	header button {
-		@apply w-6 h-6 rounded-full flex items-center justify-center text-xs border-2 border-x-slate-700;
+		@apply w-6 h-6 rounded-full flex items-center justify-center text-xs border-4 border-slate-700;
 	}
 
 	article {

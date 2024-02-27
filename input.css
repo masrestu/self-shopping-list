@@ -52,7 +52,7 @@
 	}
 
 	.sayur-btn {
-		@apply bg-[url("./assets/images/sayurbox_logo.png")] bg-no-repeat bg-center bg-contain bg-sayur;
+		@apply bg-[url("./assets/images/Sayurbox_logo.png")] bg-no-repeat bg-center bg-contain bg-sayur;
 	}
 
 	.mini-btn {

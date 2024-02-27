@@ -545,8 +545,11 @@ video {
 }
 
 body > div {
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1.25rem;
   width: 100%;
+  max-width: 28rem;
 }
 
 body > div > *:not(article) {

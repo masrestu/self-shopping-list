@@ -4,7 +4,7 @@
 
 @layer components {
 	body > div {
-		@apply w-full mb-5;
+		@apply w-full mb-5 max-w-md mx-auto;
 	}
 
 	body > div > *:not(article) {

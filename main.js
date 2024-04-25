@@ -91,11 +91,14 @@ function clicked(button) {
   }
 }
 
+const capitalize = str => str.toLowerCase().replace(/^\w/, c => c.toUpperCase())
+const capitalizeFirstLetter = str => str.split(" ").map(capitalize).join(" ")
+
 const addButton = document.getElementById("add")
 addButton.addEventListener("click", () => {
   const newProduct = prompt("Add new product")
   if (newProduct) {
-    unsetLists.push(newProduct)
+    unsetLists.push(capitalizeFirstLetter(newProduct))
     generateProduct("unset", unsetLists)
   }
 })

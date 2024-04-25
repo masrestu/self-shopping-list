@@ -1,6 +1,6 @@
-# Shopping List
+# Self Shopping List
 
-Shopping List is a web application to manage your shopping list. You can add, delete and move items to different store category in one click.
+Self Shopping List is a web application to manage your shopping list. You can add, delete and move items to different store category in one click.
 
 ## Demo
 

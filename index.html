@@ -10,8 +10,18 @@
   <div> 
     <header>
       <h1>Unlisted</h1>
-      <button id="add"><span>➕</span></button>
+      <div class="action flex gap-5">
+          <button id="load"><span>📂</span></button>
+          <button id="save"><span>💾</span></button>
+          <button id="add"><span>➕</span></button>
+        </div>
     </header>
+    <div class="upload-form justify-end my-3 hidden">
+        <form id="upload">
+            <input type="file" id="file" accept=".json">
+            <input type="submit" id="upload-btn" class="bg-slate-100 text-slate-700 font-bold px-2 rounded" value="Upload">
+        </form>
+    </div>
     <article id="unset">
       
     </article>

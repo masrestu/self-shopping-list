@@ -134,10 +134,10 @@ form.addEventListener("submit", e => {
     reader.onload = e => {
         const json = JSON.parse(e.target.result)
         console.log(json)
-        localStorage.setItem(unsetLists, JSON.stringify(json.unsetLists))
-        localStorage.setItem(miniLists, JSON.stringify(json.miniLists))
-        localStorage.setItem(sayurLists, JSON.stringify(json.sayurLists))
-        localStorage.setItem(shopeeLists, JSON.stringify(json.shopeeLists))
+        localStorage.setItem("unsetLists", JSON.stringify(json.unsetLists))
+        localStorage.setItem("miniLists", JSON.stringify(json.miniLists))
+        localStorage.setItem("sayurLists", JSON.stringify(json.sayurLists))
+        localStorage.setItem("shopeeLists", JSON.stringify(json.shopeeLists))
         generateProduct("unset", json.unsetLists)
         generateProduct("mini", json.miniLists)
         generateProduct("sayur", json.sayurLists)
@@ -151,4 +151,13 @@ form.addEventListener("submit", e => {
 const loadButton = document.getElementById("load")
 loadButton.addEventListener("click", () => {
     uploadSection.style.display = "flex"
+})
+
+const resetButton = document.getElementById("reset")
+resetButton.addEventListener("click", () => {
+    localStorage.removeItem("unsetLists")
+    localStorage.removeItem("miniLists")
+    localStorage.removeItem("sayurLists")
+    localStorage.removeItem("shopeeLists")
+    window.location.reload()
 })

@@ -155,6 +155,7 @@ loadButton.addEventListener("click", () => {
 
 const resetButton = document.getElementById("reset")
 resetButton.addEventListener("click", () => {
+    console.log("resetting state...")
     localStorage.removeItem("unsetLists")
     localStorage.removeItem("miniLists")
     localStorage.removeItem("sayurLists")

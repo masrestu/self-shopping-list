@@ -108,8 +108,6 @@ addButton.addEventListener("click", () => {
     }
 })
 
-console.log(localStorage.length)
-
 const saveButton = document.getElementById("save")
 saveButton.addEventListener("click", () => {
     const jsonText = JSON.stringify({ unsetLists, miniLists, sayurLists, shopeeLists })

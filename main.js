@@ -160,6 +160,7 @@ loadButton.addEventListener("click", () => {
 const toggleStrike = elm => {
     const productName = elm.textContent.trim()
     productObj[productName] = !(productObj[productName])
+    localStorage.setItem("productObj", JSON.stringify(productObj))
     if (productObj[productName]) elm.classList.add('bought')
     else elm.classList.remove('bought')
 }

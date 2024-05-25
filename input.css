@@ -47,6 +47,10 @@
 		@apply bg-slate-800 px-2 py-1 block w-full font-bold text-white;
 	}
 
+	.product.bought span {
+		@apply line-through text-green-900
+	}
+
 	.shopee-btn {
 		@apply bg-[url("./assets/images/Shopee_logo.svg")] bg-no-repeat bg-center bg-contain bg-orange-200;
 	}

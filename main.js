@@ -1,7 +1,13 @@
 const productLists = [
     "Beras", "Biskuit", "Detergent Cair", "Hair Lotion Bayi", "Kecap", "Kopi Instant", "Larutan Penyegar", "Margarin", "Mie Instant", "Minyak Goreng", "Minyak Telon", "Obat Nyamuk Semprot", "Oli Rantai", "Pasta Gigi", "Pewangi Gantung", "Pewangi Ruangan", "Pewangi Setrika", "Sabun Bayi", "Sabun Cuci Piring", "Sabun Mandi", "Saus Cabe Botol", "Saus Pasta", "Saus Tiram", "Saus Tomat Botol", "Spaghetti", "Tepung Bakwan", "Tepung Original", "Tissue Basah"]
-
+    
 let unsetLists = localStorage.getItem("unsetLists") ? JSON.parse(localStorage.getItem("unsetLists")) : [...productLists]
+
+const defaultObj = {}
+unsetLists.forEach(v => defaultObj[v] = false)
+
+let productObj = localStorage.getItem("productObj") ? JSON.parse(localStorage.getItem("productObj")) : Object.assign({}, defaultObj)
+
 let miniLists = localStorage.getItem("miniLists") ? JSON.parse(localStorage.getItem("miniLists")) : []
 let sayurLists = localStorage.getItem("sayurLists") ? JSON.parse(localStorage.getItem("sayurLists")) : []
 let shopeeLists = localStorage.getItem("shopeeLists") ? JSON.parse(localStorage.getItem("shopeeLists")) : []
@@ -26,8 +32,9 @@ function generateProduct(listName, products) {
     const list = document.getElementById(listName)
     list.innerHTML = ""
     products.forEach(product => {
+        let bought = productObj[product] ? " bought" : ''
         let item = `<div class="item">
-      <div class="product">
+      <div class="product${bought}" onclick="toggleStrike(this)">
         <span>${product}</span>
       </div>
       <div class="buttons">`
@@ -131,7 +138,6 @@ form.addEventListener("submit", e => {
     const reader = new FileReader()
     reader.onload = e => {
         const json = JSON.parse(e.target.result)
-        console.log(json)
         localStorage.setItem("unsetLists", JSON.stringify(json.unsetLists))
         localStorage.setItem("miniLists", JSON.stringify(json.miniLists))
         localStorage.setItem("sayurLists", JSON.stringify(json.sayurLists))
@@ -151,12 +157,33 @@ loadButton.addEventListener("click", () => {
     uploadSection.style.display = "flex"
 })
 
+const toggleStrike = elm => {
+    const productName = elm.textContent.trim()
+    productObj[productName] = !(productObj[productName])
+    if (productObj[productName]) elm.classList.add('bought')
+    else elm.classList.remove('bought')
+}
+
 const resetButton = document.getElementById("reset")
 resetButton.addEventListener("click", () => {
     console.log("resetting state...")
-    localStorage.removeItem("unsetLists")
+
+    miniLists.forEach(v => unsetLists.push(v))
+    sayurLists.forEach(v => unsetLists.push(v))
+    shopeeLists.forEach(v => unsetLists.push(v))
+
+    miniLists = []
+    sayurLists = []
+    shopeeLists = []
+
+    localStorage.setItem("unsetLists", JSON.stringify(unsetLists))
+    unsetLists.forEach(v => productObj[v] = false)
+    localStorage.setItem("productObj", JSON.stringify(productObj))
+
+    // localStorage.removeItem("unsetLists")
     localStorage.removeItem("miniLists")
     localStorage.removeItem("sayurLists")
     localStorage.removeItem("shopeeLists")
+    
     window.location.reload()
 })
